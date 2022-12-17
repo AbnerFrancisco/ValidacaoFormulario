@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de usuário</title>
+    <script>
+        function validar(){
+            var nome = formuser.nome.value;
+            var email = formuser.email.value;
+            var senha = formuser.senha.value;
+
+            if(nome == ""){
+                alert("Campo nome é obrigatório");
+                return false;
+            }
+            if(email == ""){
+                alert("Campo e-mail é obrigatório");
+                return false;
+            }
+            if(email.indexOf('@')== -1){
+                alert("E-mail não é válido");
+                return false;
+            }
+            if(senha == ""){
+                alert("Campo senha é obrigatório");
+                return false;
+            }
+            if(senha.length <=3){
+                alert("Senha inválida");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cadastro de usuário</h1>
+    <form name="formuser" action="recebe.php" method="post">
+        <div>
+            Nome
+            <input type="text" name="nome" id="">
+        </div>
+        <div>
+            E-mail
+            <input type="text" name="email" id="">
+        </div>
+        <div>
+            Senha
+            <input type="password" name="senha" id="">
+        </div>
+        <div>
+            <input onclick=" return validar()" type="submit" name="cadastrar" id="">
+        </div>
+    </form>
+
+</body>
+</html>
